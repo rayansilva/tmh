@@ -1,0 +1,19 @@
+CXX=g++
+CC=${CXX}
+
+WARNINGS=-Wall -Wclobbered -Wempty-body -Wignored-qualifiers -Wmissing-field-initializers -Wsign-compare -Wtype-limits -Wuninitialized
+
+CC_OPTIONS=-std=c++0x -lpthread ${WARNINGS} -O0 -m64 -fPIC -ggdb -DDEBUG
+
+COMMON_INCLUDES=${CC_OPTIONS} -I../../include -I../../include/protocol -I../../include/utility -I../../include/business -I../../include/persistence -I../../include/test
+
+CPPFLAGS=${COMMON_INCLUDES}
+
+LDFLAGS=-L. -lpthread
+
+# Parallel compilation
+ifndef MAKE_J
+MAKE_J=4
+endif
+
+DEPPATH=-- ${CPPFLAGS} --
