@@ -9,7 +9,7 @@ COMMON_INCLUDES=${CC_OPTIONS} -I../../include -I../../include/protocol -I../../i
 
 CPPFLAGS=${COMMON_INCLUDES}
 
-LDFLAGS=-L. -lpthread
+LDFLAGS=-L. -lpthread -lpqxx -lpq
 
 # Parallel compilation
 ifndef MAKE_J
