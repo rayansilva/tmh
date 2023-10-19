@@ -190,20 +190,8 @@ namespace business
       }
       else
       {
-//          serialization::PackageManager manager;
-//          manager.DecodeStreamPacket( dataRead, packet );
-
-         // TEST
-         uint8_t startOfFrame = 0x01;
-         uint8_t endOfFrame   = 0x04;
-
-         std::stringstream dataStream;
-         dataStream.clear();
-
-         dataStream << startOfFrame << dataRead << endOfFrame;
-
-         packet.push_back( dataStream.str() );
-         // END
+         serialization::PackageManager manager;
+         manager.DecodeStreamPacket( dataRead, packet );
 
          std::stringstream ss;
          ss << "Received packet from user '" << m_user.GetUsername() << "' (" << m_socket->GetIpAddress()
